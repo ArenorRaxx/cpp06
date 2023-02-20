@@ -17,9 +17,10 @@ SRCDIR	=	sources
 OBJDIR	=	obj
 
 ##		SOURCES				##
-HEADFILES	=	Data.hpp
+HEADFILES	=	Data.hpp		\
+				Serializer.hpp	\
 
-SRCFILES	=
+SRCFILES	=	Serializer.cpp
 
 ##		INCLUDE FILES		##
 HEAD	=	$(HEADFILES:%=$(HEADIR)/%)

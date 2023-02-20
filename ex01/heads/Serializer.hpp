@@ -1,29 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nikoraxx <nikoraxx@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 16:01:26 by nikoraxx          #+#    #+#             */
-/*   Updated: 2023/02/20 17:15:20 by nikoraxx         ###   ########.fr       */
+/*   Created: 2023/02/20 16:59:11 by nikoraxx          #+#    #+#             */
+/*   Updated: 2023/02/20 17:15:16 by nikoraxx         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#ifndef SERIALIZER_HPP
+# define SERIALIZER_HPP
 
+#include <iostream>
 #include <string>
 #include <stdint.h>
+#include "Data.hpp"
 
-typedef struct	Data
+class Serializer
 {
-	int			index;
-	std::string	name;
-	struct Data	*next;
-}				Data;
+	private:
 
-uintptr_t	serialize(Data *pointer);
-Data		*deserialize(uintptr_t raw_data);
+	//	Constructors
+
+		Serializer(void);
+		Serializer(Serializer const&);
+		
+		~Serializer(void);
+
+	//	Operators
+
+		Serializer &operator = (Serializer const&);
+
+	public:
+	
+	//	Methods
+
+static	Data		*deserialize(uintptr_t const);
+static	uintptr_t	serialize(Data const*);
+};
 
 #endif
